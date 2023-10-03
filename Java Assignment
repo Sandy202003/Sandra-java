@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class LoginProgram
+ {
+  public static void main(String[] args) 
+{
+ Scanner scanner = new Scanner(System.in);
+  String correctUsername = "exampleUser";
+   String correctPassword = "examplePass";
+   int attempts = 3;
+  while (attempts > 0)
+ {
+ System.out.print("Enter username: ");
+   String username = scanner.nextLine();
+  System.out.print("Enter password: ");
+   String password = scanner.nextLine();
+  // Mask the password characters
+ System.out.print("Password: ");
+  for (int i = 0; i < password.length(); i++) 
+{
+ System.out.print("*");
+  }
+ System.out.println(); // Move to the next line
+  if (username.equals(correctUsername) && password.equals(correctPassword))
+ {
+System.out.println("Login successful!");
+ break;
+            }
+ else
+ {
+  attempts--;
+ if (attempts > 0)
+ {
+ System.out.println("Incorrect username or password. You have " + attempts + " attempt(s) left.");
+  } 
+else
+ {
+ System.out.println("Incorrect username or password. No attempts left. Access denied.");
+  }
+   }
+   }
+  scanner.close();
+   }
+}
